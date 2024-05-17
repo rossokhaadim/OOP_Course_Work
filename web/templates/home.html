@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Home Page</h2>
+<p>Welcome back, {{ username }}!</p>
+<p>Your cards:</p>
+<div class="scrollable-section">
+    <div class="content-scroll">
+        {% for card in cards %}
+        <a href="{{ url_for('card', card_id=card['id']) }}">
+        <div class="scrollable-element">
+
+            {% if card['image_path'] and card['image_path'] != 'default_path' %}
+                <img src="{{ card['image_path'] }}" alt="Card Image">
+            {% else %}
+                <div style="background-color: grey; width: 400px; height: 200px;"></div>
+            {% endif %}
+
+            <p class="card-name">{{ card['company'] }}</p>
+
+        </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
