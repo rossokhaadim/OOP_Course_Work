@@ -53,11 +53,12 @@ class User(SystemManage):
         answer = "THE FLOOR IS ADDED SUCCESSFULLY"
         already_exist = False
         added = False
-        for floor in self.accessed_floors:
-            pass
-
-
+        for floor in self.userData["companies"][company]["buildings"][building]["floors"].keys():
+            if floor_number == floor:
+                answer = "ERROR. THE FLOOR ALREADY EXISTS IN THIS USER SYSTEM"
+        # for floor in system_manage.companies.company.buildings.building.
     def add_office_to_user(self, company, building, floor, office):
         answer = "THE OFFICE IS ADDED SUCCESSFULLY"
         already_exist = False
         added = False
+
