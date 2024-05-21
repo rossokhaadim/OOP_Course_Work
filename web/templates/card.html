@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block title %}Card Details{% endblock %}
+
+{% block content %}
+<h2>Card Details</h2>
+<div style="text-align: center;">
+    {% if card %}
+              {% if card['image_path'] and card['image_path'] != 'default_path' %}
+                <img src="{{ card['image_path'] }}" alt="Card Image" style="width: 600px; height: 300px;display: block; margin: 0 auto;">
+            {% else %}
+                <div style="background-color: grey; width: 600px; height: 300px;display: block; margin: 0 auto;"></div>
+            {% endif %}
+        <p>Company Name: {{ card['company'] }}</p>
+    {% else %}
+        <p>Card not found.</p>
+    {% endif %}
+</div>
+{% endblock %}

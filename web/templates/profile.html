@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h2>Profile Page</h2>
+<div>
+    <p>Your account details are below:</p>
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>{{ account['username'] }}</td>
+        </tr>
+
+        <tr>
+            <td>Email:</td>
+            <td>{{ account['email'] }}</td>
+        </tr>
+        <tr>
+            <td>Companies:</td>
+            <td>
+                <ul>
+                    {% for card in cards %}
+                    <li>{{ card['company'] }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>******</td>
+        </tr>
+    </table>
+    <button onclick="document.getElementById('changePasswordForm').style.display='block'">Change Password</button>
+
+    <div id="changePasswordForm" style="display:none;">
+        <h3>Change Password</h3>
+        <form method="post" action="{{ url_for('change_password') }}">
+            <label for="old_password">Old Password:</label>
+            <input type="password" name="old_password" id="old_password" required><br>
+            <label for="new_password">New Password:</label>
+            <input type="password" name="new_password" id="new_password" required><br>
+            <label for="confirm_password">Confirm New Password:</label>
+            <input type="password" name="confirm_password" id="confirm_password" required><br>
+            <input type="submit" value="Change Password">
+        </form>
+    </div>
+    {% if msg %}
+    <p>{{ msg }}</p>
+    {% endif %}
+</div>
+
+<script>
+    function togglePasswordForm() {
+        var form = document.getElementById('changePasswordForm');
+        if (form.style.display === 'none' || form.style.display === '') {
+            form.style.display = 'block';
+        } else {
+            form.style.display = 'none';
+        }
+    }
+</script>
+{% endblock %}

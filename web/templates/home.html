@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2 class="home-name">Cards</h2>
+<div>!Click the card to activate!</div>
+<!--<p class="your_cards">Your cards:</p>-->
+<div class="scrollable-section">
+    <div class="content-scroll">
+        {% for card in cards %}
+        <div class="vl">
+        <a href="{{ url_for('card', card_id=card['id']) }}">
+        <div class="scrollable-element">
+
+            {% if card['image_path'] and card['image_path'] != 'default_path' %}
+                <img src="{{ card['image_path'] }}" alt="Card Image">
+            {% else %}
+                <div style="background-color: grey; width: 580px; height: 250px;"></div>
+            {% endif %}
+
+            <p class="card-name">{{ card['company'] }}</p>
+        </div>
+
+        </a>
+        </div>
+<!--        <hr>-->
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title class="title-class">Generate QR Code for Card</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+
+<body>
+<div class="register">
+    <h1>Generate QR Code for New Card</h1>
+    <p style="text-align: center">Input Company name and Key</p>
+    <form action="/keywallet/generate_qr" method="post">
+        <label for="company" class="gen_qr_form">
+            <img style="width: 50px; height: 50px" src="{{ url_for('static', filename='../static/company.png') }}" alt="Company">
+        </label><br>
+        <div>
+            <input class="input_qr" type="text" id="company" name="company" required><br>
+        </div>
+        <label for="key">
+            <img style="width: 50px; height: 50px" src="{{ url_for('static', filename='../static/key.png') }}" alt="Key">
+        </label><br>
+        <input type="text" id="key" name="key" required><br><br>
+        <input type="submit" value="Generate QR Code">
+    </form>
+</div>
+</body>
+</html>
