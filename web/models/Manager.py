@@ -1,3 +1,5 @@
+from abc import abstractmethod
+
 from flask import Flask, render_template, request, redirect, url_for, session
 # from flask_mysqldb import MySQL
 import MySQLdb.cursors
@@ -18,43 +20,52 @@ class Manager(metaclass = SingletonMeta):
     def __init__(self, mysql):
         self.mysql = mysql
 
+    @abstractmethod
     def get_user_by_username_and_password(self):
         pass
 
+    @abstractmethod
     def get_card_by_account_id(self):
         pass
 
+    @abstractmethod
     def get_account_data_by_username(self, username):
         pass
 
+    @abstractmethod
     def get_account_data_by_id(self):
         pass
 
+    @abstractmethod
     def insert_data_in_account(self):
         pass
 
+    @abstractmethod
     def get_card_by_id(self):
         pass
+
+    @abstractmethod
     def add_new_card(self):
         pass
+
+    @abstractmethod
     def check_password(self):
         pass
+
+    @abstractmethod
     def update_password(self):
         pass
 
 class DatabaseHandler(Manager):
-    # @staticmethod
     def get_cursor(self):
         mysql = self.mysql
         return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 
-    # @staticmethod
     def get_user_by_username_and_password(self, username, password):
         cursor = self.get_cursor()
         cursor.execute('SELECT * FROM accounts WHERE username = %s AND password = %s', (username, password,))
         return cursor.fetchone()
 
-    # @staticmethod
     def get_card_by_account_id(self, account_id):
         dh = DatabaseHandler(self.mysql)
         cursor = dh.get_cursor()
@@ -144,11 +155,6 @@ class SessionManager(Manager):
         session.pop('id', None)
         session.pop('username', None)
 
-
-class TemplateRenderer(Manager):
-    @staticmethod
-    def render(template, **kwargs):
-        return render_template(template, **kwargs)
 
 
 class Factory:

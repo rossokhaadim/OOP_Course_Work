@@ -4,10 +4,11 @@ from flask_mysqldb import MySQL
 import re, hashlib
 # from UserClasses.User import User
 import logging
-from models.Manager import Factory
+from web.models.Manager import Factory
+# from models.Manager import Factory
 import json
-from models.User import User
-from models.Card import Card
+from web.models.User import User
+from web.models.Card import Card
 # from flask_qrcode import QRcode
 import qrcode
 from io import BytesIO
@@ -15,7 +16,7 @@ from io import BytesIO
 logging.basicConfig(level=logging.INFO)  # Set logging level to INFO
 
 app = Flask(__name__)
-
+app.testing = True
 # Change this to your secret key (it can be anything, it's for extra protection)
 app.secret_key = 'diiimooooooon'
 
@@ -82,7 +83,7 @@ def login():
     return render_template('index.html', msg=msg)
 
 
-# http://localhost:5000/python/logout - this will be the logout page
+# http://localhost:5000/keywallet/logout
 @app.route('/keywallet/logout')
 def logout():
     # Remove session data, this will log the user out
@@ -91,13 +92,10 @@ def logout():
     return redirect(url_for('login'))
 
 
-# http://localhost:5000/keywallet/register - this will be the registration page, we need to use both GET and POST requests
+# http://localhost:5000/keywallet/register
 @app.route('/keywallet/register', methods=['GET', 'POST'])
 def register():
-    # dh = DatabaseHandler(mysql)
     dh = Factory.create_database_handler(mysql)
-
-    # Output message if something goes wrong...
     msg = ''
     # Check if "username", "password" and "email" POST requests exist (user submitted form)
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form:
@@ -121,10 +119,6 @@ def register():
         elif not username or not password or not email:
             msg = 'Please fill out the form!'
         else:
-            # Hash the password
-            # hash = password + app.secret_key
-            # hash = hashlib.sha1(hash.encode())
-            # password = hash.hexdigest()
             password = Factory.use_password_manager().hash_password(user.get_password(), app.secret_key)
             user.input_hashed_password(password)
             # Account doesn't exist, and the form data is valid, so insert the new account into the accounts table
@@ -138,7 +132,7 @@ def register():
     return render_template('register.html', msg=msg)
 
 
-# http://localhost:5000/pythinlogin/home - this will be the home page, only accessible for logged in users
+# http://localhost:5000/keywallet/home
 @app.route('/keywallet/home')
 def home():
     # Check if the user is logged in
@@ -167,14 +161,12 @@ def home():
     return redirect(url_for('login'))
 
 
-# http://localhost:5000/pythinlogin/profile - this will be the profile page, only accessible for logged in users
+# http://localhost:5000/keywallet/profile
 @app.route('/keywallet/profile')
 def profile():
     # Check if the user is logged in
     if Factory.use_session_manager().is_logged_in():
-        # dh = DatabaseHandler(mysql)
         dh = Factory.create_database_handler(mysql)
-        # We need all the account info for the user so we can display it on the profile page
         account = dh.get_account_data_by_id(session['id'])
         user = User()
         user.input_username(account['username'])
@@ -190,7 +182,6 @@ def profile():
 
 @app.route('/keywallet/card/<int:card_id>')
 def card(card_id):
-    # dh = DatabaseHandler(mysql)
     dh = Factory.create_database_handler(mysql)
     # Fetch the card details from the database based on its ID
     card = dh.get_card_by_id(card_id)
@@ -212,10 +203,6 @@ def process_qr_code():
 
     print(qr_data)
     data = json.loads(qr_data)
-    # print(data)
-    # print(data['key'])
-    # print(data['company'])
-    # Get the current user's ID from the session
     user_id = session.get('id')
 
     # Ensure user is logged in
@@ -224,8 +211,6 @@ def process_qr_code():
 
     # Extract card information from the JSON data
     card_key = data['key']
-    # print(type(card_key))
-    # print(card_key)
     card_company = data['company']
 
     # Ensure the required fields are present
@@ -236,14 +221,6 @@ def process_qr_code():
     img_path = 'default_path'
 
     try:
-        # Insert the card into the database for the current user
-        # cur = mysql.connection.cursor()
-        # cur.execute(
-        #     "INSERT INTO cards (`key`, company, imp_path, account_id) VALUES (%s, %s, %s, %s)",
-        #     (card_key, card_company, img_path, user_id)
-        # )
-        # mysql.connection.commit()
-        # cur.close()
         dh = Factory.create_database_handler(mysql)
         dh.add_new_card(card_key, card_company, img_path, user_id)
         return jsonify({'redirect_url': url_for('card_added')}), 200
@@ -268,7 +245,6 @@ def change_password():
     msg = ''
 
     account = dh.get_account_data_by_id(session['id'])
-    # print(account['email'])
     user = User()
     user.input_username(account['username'])
     user.input_password(account['password'])
@@ -287,37 +263,23 @@ def change_password():
             # Hash the old password for comparison
             old_password_hashed = hashlib.sha1((old_password + app.secret_key).encode()).hexdigest()
             print(old_password_hashed)
-            # # Check if the old password is correct
-            # cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            # cur.execute('SELECT * FROM accounts WHERE id = %s AND password = %s', (session['id'], old_password_hashed))
-            # account = cur.fetchone()
             account = dh.check_password(session['id'], old_password_hashed)
 
             if account:
                 # Hash the new password
                 new_password_hashed = Factory.use_password_manager().hash_password(new_password, app.secret_key)
                 user.input_hashed_password(new_password_hashed)
-                #
-                # # Update the password in the database
-                # cur.execute('UPDATE accounts SET password = %s WHERE id = %s', (new_password_hashed, session['id']))
-                # mysql.connection.commit()
                 dh.update_password(user.get_hashed_password(), session['id'])
                 msg = 'Password successfully changed!'
             else:
                 msg = 'Incorrect old password!'
 
-    # Fetch account and card details again to render the profile page
-    # cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    # cur.execute('SELECT * FROM accounts WHERE id = %s', (session['id'],))
-    # account = cur.fetchone()
     account = dh.get_account_data_by_id(session['id'])
-    # cur.execute('SELECT * FROM cards WHERE account_id = %s', (session['id'],))
-    # cards = cur.fetchall()
     cards = dh.get_card_by_account_id(session['id'])
     user.update_cards(cards)
-
     return render_template('profile.html', account=account, cards=user.get_cards(), msg=msg)
 
+# http://localhost:5000/keywallet/qr_generator
 @app.route('/keywallet/qr_generator')
 def qr_generator():
     return render_template('qr_generator.html')
@@ -331,9 +293,6 @@ def generate_qr():
         "key": key,
         "company": company,
     }
-    print(card_data)
-
-
     qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=5)
     qr.add_data(card_data)
     qr.make(fit=True)
