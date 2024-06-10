@@ -305,8 +305,4 @@ To sum up, uring this coursewrok I have created a website based on Flask and MyS
 #### QR-Generator
 ![image](https://github.com/rossokhaadim/OOP_Course_Work/assets/162993195/2ed8802a-369d-4cd5-a27e-405efc901909)
 
-#### Example of generated QR
-
-![image](https://github.com/rossokhaadim/OOP_Course_Work/assets/162993195/46f2c81b-da43-447c-8cdb-093431d86926)
-
 
