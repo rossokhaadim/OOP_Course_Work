@@ -26,7 +26,7 @@ class DatabaseHandler(Manager):
 class PasswordManager(Manager):
 class SessionManager(Manager):
 ```
-- Abstraction <br />
+- Abstraction: <br />
 Abstraction is a fundamental concept in object-oriented programming (OOP) that focuses on simplifying complex systems by modeling classes appropriate to the problem. It involves highlighting the essential features of an object while hiding the unnecessary details. This helps in managing complexity by reducing and controlling the impact of changes
 ```python
 class Manager(metaclass = SingletonMeta):
@@ -69,7 +69,7 @@ class Manager(metaclass = SingletonMeta):
         pass
 ```
 
-- Encapsulation <br />
+- Encapsulation: <br />
 Encapsulation is a fundamental principle of object-oriented programming (OOP) that focuses on bundling data (attributes) and methods (functions) that operate on that data into a single unit, known as a class. It also involves restricting direct access to some of the object's components, which is a means of preventing unintended interference and misuse of data. This is typically achieved through the use of access modifiers, such as private, protected, and public
 ```python
 class SingletonMeta(type):
@@ -173,7 +173,8 @@ class SessionManager(Manager):
     def logout():
   ```
 
- - Factory Method Pattern
+ - Factory Method Pattern </br>
+ Maybe the implement is not enough detailed(no additional conditions) but it makes the code more readable
  ```python
 class Factory:
     @staticmethod
