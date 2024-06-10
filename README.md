@@ -18,7 +18,7 @@ Then, we need to open XAMPP and run MySQL
 ![image](https://github.com/rossokhaadim/OOP_Course_Work/assets/162993195/553d81f0-a68f-4bba-8e1a-7cfd148f183d)
 2.	Functions
 ### OOP principles used:
-- Inheritance:__
+- Inheritance: <br />
 Inheritance is a key concept in object-oriented programming (OOP) that allows a new class, called a subclass or derived class, to inherit properties and behaviors (methods) from an existing class, known as the superclass or base class. This mechanism promotes code reuse and establishes a hierarchical relationship between classes. The subclass can extend or override functionalities of the superclass, enabling more specific behavior. Inheritance supports the principle of "is-a" relationships, where the subclass is a specialized form of the superclass
 ```python
 class Manager(metaclass = SingletonMeta):
@@ -26,7 +26,7 @@ class DatabaseHandler(Manager):
 class PasswordManager(Manager):
 class SessionManager(Manager):
 ```
-- Abstraction__
+- Abstraction <br />
 Abstraction is a fundamental concept in object-oriented programming (OOP) that focuses on simplifying complex systems by modeling classes appropriate to the problem. It involves highlighting the essential features of an object while hiding the unnecessary details. This helps in managing complexity by reducing and controlling the impact of changes
 ```python
 class Manager(metaclass = SingletonMeta):
@@ -69,7 +69,7 @@ class Manager(metaclass = SingletonMeta):
         pass
 ```
 
-- Encapsulation__
+- Encapsulation <br />
 Encapsulation is a fundamental principle of object-oriented programming (OOP) that focuses on bundling data (attributes) and methods (functions) that operate on that data into a single unit, known as a class. It also involves restricting direct access to some of the object's components, which is a means of preventing unintended interference and misuse of data. This is typically achieved through the use of access modifiers, such as private, protected, and public
 ```python
 class SingletonMeta(type):
@@ -114,7 +114,7 @@ class Card:
         self.__key = key
 ```
 
-- Polymorphism:__
+- Polymorphism: <br />
 Polymorphism is a core concept in object-oriented programming (OOP) that allows objects of different classes to be treated as objects of a common superclass. It enables a single interface to be used for a general class of actions. The specific action is determined by the exact nature of the situation, allowing for more flexible and reusable code.
  - Abstract Base Class (Manager) and its Subclasses
   ```python
