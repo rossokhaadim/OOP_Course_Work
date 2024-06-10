@@ -1,5 +1,5 @@
 # OOP_Course_Work
-## made by student of the groupr EDIfu-23 Dmytro Rossokha
+## made by student of the groupe EDIfu-23 Dmytro Rossokha
 ### Introduction
 There was  implemented the application which keeps all key cards of the specific user, similar to Google Pay with bank cards. Currently, I have made on web implementation which works only on PC because there is no enough time to finish mobile application till the deadline. I decided to name it KeyWallet.
 Main used technologies: Flask, MySQL
