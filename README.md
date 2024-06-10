@@ -174,7 +174,6 @@ class SessionManager(Manager):
   ```
 
  - Factory Method Pattern </br>
- Maybe the implement is not enough detailed(no additional conditions) but it makes the code more readable
  ```python
 class Factory:
     @staticmethod
@@ -202,7 +201,8 @@ class SingletonMeta(type):
             cls._instances[cls] = instance
         return cls._instances[cls]
 ```
-- Factory Method
+- Factory Method < br/>
+- Maybe the implement is not enough detailed(no additional conditions) but it makes the code more readable
 ```python
 class Factory:
     @staticmethod
