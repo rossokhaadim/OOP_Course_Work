@@ -283,26 +283,26 @@ To sum up, uring this coursewrok I have created a website based on Flask and MyS
 
 ### Functionality
 
-#### Login Page
+- Login Page
 ![image](https://github.com/rossokhaadim/OOP_Course_Work/assets/162993195/d70eb2f3-5383-4c3d-92d6-64a4983f7bc6)
 
-#### Register Page
+- Register Page
 ![image](https://github.com/rossokhaadim/OOP_Course_Work/assets/162993195/3532c521-4647-40f5-9051-a508c91f9d70)
 
-#### Home Page
+- Home Page
 ![image](https://github.com/rossokhaadim/OOP_Course_Work/assets/162993195/266c1fca-597b-414b-896e-52fe822734be)
 
-#### Card Page
+- Card Page
 ![image](https://github.com/rossokhaadim/OOP_Course_Work/assets/162993195/b7c00bdd-9a4a-40b0-bbea-372f87cfac96)
 
 
-#### Profile Page
+- Profile Page
 ![image](https://github.com/rossokhaadim/OOP_Course_Work/assets/162993195/ac9e64ab-c817-4882-b7f9-ce19834b6b8b)
 
-#### Scan Page
+- Scan Page
 ![image](https://github.com/rossokhaadim/OOP_Course_Work/assets/162993195/e08ba46a-1d1b-4392-8f64-fe99e7105f59)
 
-#### QR-Generator
+- QR-Generator
 ![image](https://github.com/rossokhaadim/OOP_Course_Work/assets/162993195/2ed8802a-369d-4cd5-a27e-405efc901909)
 
 
