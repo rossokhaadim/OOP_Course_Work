@@ -5,7 +5,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-<<<<<<< HEAD
 
 .home-name{
     color: white;
@@ -16,10 +15,6 @@
 }
 body {
     background-color: #7E0000;
-=======
-body {
-    background-color: #435165;
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
     margin: 0;
 }
 .login, .register {
@@ -30,11 +25,8 @@ body {
 }
 .login h1, .register h1 {
     text-align: center;
-<<<<<<< HEAD
     color: #300000;
-=======
-    color: #5b6574;
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
+
     font-size: 24px;
     padding: 20px 0 20px 0;
     border-bottom: 1px solid #dee0e4;
@@ -44,11 +36,7 @@ body {
     padding: 0 15px;
 }
 .login .links a, .register .links a {
-<<<<<<< HEAD
     color: #300000;
-=======
-    color: #adb2ba;
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
     text-decoration: none;
     display: inline-flex;
     padding: 0 10px 10px 10px;
@@ -58,13 +46,8 @@ body {
     color: #9da3ac;
 }
 .login .links a.active, .register .links a.active {
-<<<<<<< HEAD
     border-bottom: 3px solid #650202;
     color: #650202;
-=======
-    border-bottom: 3px solid #3274d6;
-    color: #3274d6;
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
 }
 .login form, .register form {
     display: flex;
@@ -78,11 +61,7 @@ body {
     align-items: center;
     width: 50px;
     height: 50px;
-<<<<<<< HEAD
     background-color: #300000;
-=======
-    background-color: #3274d6;
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
     color: #ffffff;
 }
 .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
@@ -96,11 +75,7 @@ body {
     width: 100%;
     padding: 15px;
     margin-top: 20px;
-<<<<<<< HEAD
     background-color: #760202;
-=======
-    background-color: #3274d6;
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
     border: 0;
     cursor: pointer;
     font-weight: bold;
@@ -108,7 +83,6 @@ body {
     transition: background-color 0.2s;
 }
 .login form input[type="submit"]:hover, .register form input[type="submit"]:hover {
-<<<<<<< HEAD
     background-color: #300000;
     transition: background-color 0.2s;
 }
@@ -116,52 +90,28 @@ body {
     background-color: #4A0202;
     height: 60px;
     width: 100%;
-    /*border: 10px;*/
     border-bottom: 1px solid #FDD8D8;
-
-=======
-    background-color: #2868c7;
-    transition: background-color 0.2s;
-}
-.navtop {
-    background-color: #2f3947;
-    height: 60px;
-    width: 100%;
-    border: 0;
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
 }
 .navtop div {
     display: flex;
     margin: 0 auto;
     width: 1000px;
     height: 100%;
-<<<<<<< HEAD
     padding-right: 160px;
-=======
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
 }
 .navtop div h1, .navtop div a {
     display: inline-flex;
     align-items: center;
-<<<<<<< HEAD
     text-shadow: 1px 1px 1px black;
-=======
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
+
 }
 .navtop div h1 {
     flex: 1;
     font-size: 24px;
-<<<<<<< HEAD
     padding-left: 170px;
    margin: 0;
     color: #eaebed;
     font-weight: 600;
-=======
-    padding: 0;
-   margin: 0;
-    color: #eaebed;
-    font-weight: normal;
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
 }
 .navtop div a {
     padding: 0 20px;
@@ -185,20 +135,10 @@ body.loggedin {
 }
 .content h2 {
     text-shadow: 1px 1px 2px black;
-=======
-    background-color: #f3f4f7;
-}
-.content {
-    width: 1000px;
-    margin: 0 auto;
-}
-.content h2 {
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
     margin: 0;
     padding: 25px 0;
     font-size: 22px;
     border-bottom: 1px solid #e0e0e3;
-<<<<<<< HEAD
     color: white;
 }
 .content > p, .content > div {
@@ -207,15 +147,6 @@ body.loggedin {
     padding: 25px;
     background-color: #fff;
     border-radius: 5px;
-=======
-    color: #4a536e;
-}
-.content > p, .content > div {
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-    margin: 25px 0;
-    padding: 25px;
-  background-color: #fff;
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
 }
 .content > p table td, .content > div table td {
   padding: 5px;
@@ -232,15 +163,9 @@ body.loggedin {
 
 .scrollable-section {
     flex: 1;
-<<<<<<< HEAD
-    /*width: 800px;*/
     max-height: 400px;
     overflow-x: auto;
 
-=======
-    max-height: 400px;
-    overflow-x: auto;
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
 }
 
 .content-scroll {
@@ -249,7 +174,6 @@ body.loggedin {
     max-width: 800px;
 
     flex-direction: row;
-    /*background-color: #ccc;*/
     padding-top: 0px;
     padding-left: 10px;
 }
@@ -258,10 +182,9 @@ body.loggedin {
 
 .scrollable-element {
     flex: 0 1 auto;
-    width: 600px; /* Or any fixed width */
-    /*height: 200px;*/
-    margin-right: 0; /* Spacing between elements */
-    margin-left: 10px; /* Spacing between elements */
+    width: 600px;
+    margin-right: 0;
+    margin-left: 10px;
     background-color: #fff;
 }
 .vl {
@@ -271,36 +194,13 @@ body.loggedin {
 }
 
 .card-image {
-    width: 100px; /* Adjust the width as needed */
-    height: 150px; /* Adjust the height as needed */
-
-=======
-
-    flex-direction: row;
-    background-color: #ccc;
-    padding: 20px;
-}
-
-.scrollable-element {
-    flex: 0 1 auto;
-    /*width: 400px; !* Or any fixed width *!*/
-    /*height: 200px;*/
-    margin-right: 20px; /* Spacing between elements */
-    background-color: #fff;
-}
-
-
-.card-image {
-    width: 200px; /* Adjust the width as needed */
-    height: 150px; /* Adjust the height as needed */
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
-    /* Add any other styles as necessary */
+    width: 100px;
+    height: 150px;
 }
 
 .card-name {
     text-align: center;
 }
-
 
 .scan-body {
     display: flex;
@@ -372,12 +272,4 @@ video {
     width: 100% !important;
     border: 1px solid #b2b2b2 !important;
     border-radius: 0.25em;
-<<<<<<< HEAD
 }
-
-.gen_qr_form{
-    /*font-size:10px;*/
-}s
-=======
-}
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba

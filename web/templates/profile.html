@@ -11,7 +11,6 @@
             <td>Username:</td>
             <td>{{ account['username'] }}</td>
         </tr>
-<<<<<<< HEAD
 
         <tr>
             <td>Email:</td>
@@ -27,13 +26,10 @@
                 </ul>
             </td>
         </tr>
-=======
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
         <tr>
             <td>Password:</td>
             <td>******</td>
         </tr>
-<<<<<<< HEAD
     </table>
     <button onclick="document.getElementById('changePasswordForm').style.display='block'">Change Password</button>
 
@@ -64,22 +60,4 @@
         }
     }
 </script>
-=======
-        <tr>
-            <td>Email:</td>
-            <td>{{ account['email'] }}</td>
-        </tr>
-            <tr>
-            <td>Companies:</td>
-            <td>
-                <ul>
-                    {% for card in cards %}
-                    <li>{{ card['company'] }}</li> <!-- Assuming 'key' is the attribute you want to display -->
-                    {% endfor %}
-                </ul>
-            </td>
-            </tr>
-    </table>
-</div>
->>>>>>> f837b9e058e11329904b7d1e629f88b9f902bdba
 {% endblock %}
